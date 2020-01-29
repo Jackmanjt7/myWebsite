@@ -1,18 +1,7 @@
-
-.container{
-    padding-left:30px;
-    padding-right:30px;
-    max-width:940px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:3em
+li{
+    list-style-type: none;
 }
 
-header{
-    display: flex;
-    height:100%;
-    padding: 90px 50px 0px
-}
 .photo-frame{
     margin-top: 20px;
     margin-right: 10px;
@@ -22,15 +11,15 @@ header{
      margin-top:10px;
  }
  .social a{
-    width:20px;
-    height:20px;
+    width:30px;
+    height:30px;
     display: inline-flex;
     font-size: 18px;
     color: rgb(91, 92, 100);
     justify-content: center;
     align-items: center;
     position: relative;
-    margin: 0 8px;
+    margin: 10 8px;
     text-decoration: none;
 }
 
@@ -61,28 +50,6 @@ header{
     justify-items: center
 }
 
-.contact{
-    display:inline-block
-}
-
-.mainbody-wrapper{
-    margin-right:150px;
-    margin-left:150px
-}
-
-.list{
-    display: flex;
-    flex-direction: column;
-}
-
-.list.left{
-    float: left;
-    padding-right:10px;
-}
-.list.right{
-    float: right;
-    padding-left: 5px;
-}
 
 .block{
     border: 2.5px solid #000000;
