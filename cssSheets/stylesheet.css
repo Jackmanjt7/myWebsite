@@ -1,4 +1,6 @@
-li{
+
+
+.social-li{
     list-style-type: none;
 }
 
@@ -44,6 +46,13 @@ li{
      border-radius: 50%
  }
 
+ .smimg{
+    width:150px;
+    height:150px;
+    object-fit: contain;
+
+ }
+
 .description{
     display: flex;
     flex-direction: column;
@@ -77,5 +86,26 @@ li{
     text-decoration: underline;
     color: #828588;
 }
+
+.bloated{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.come-in {
+    transform: translateY(150px);
+    animation: come-in 0.8s ease forwards;
+  }
+
+  .already-visible {
+    transform: translateY(0);
+    animation: none;
+  }
+  
+  @keyframes come-in {
+    to { transform: translateY(0); }
+  }
+
+
 
 
