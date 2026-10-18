@@ -1,0 +1,93 @@
+:root { --size: 4in; --gap: 1rem; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #111;
+  font-family: system-ui, sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, var(--size));
+  gap: var(--gap);
+}
+:root { --size: min(4in, 22vw); }
+.grid { grid-template-columns: repeat(4, var(--size)); }
+
+.tile {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.75rem;
+  letter-spacing: .05em;
+}
+
+/* themed layer that fades in on hover */
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity .35s ease, transform .6s ease;
+  transform: scale(1.05);
+}
+.tile:hover::before,
+.tile:focus-visible::before { opacity: 1; transform: scale(1); }
+.tile:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.tile span { position: relative; z-index: 1; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+
+/* Theme per tile: swap in real images later */
+.blog::before        { background-image: linear-gradient(135deg,#2b2b2b,#555), repeating-linear-gradient(0deg,transparent 0 22px,rgba(255,255,255,.08) 22px 24px); }
+.projects::before    { background-image: linear-gradient(135deg,#0b3d0b,#021a02); }
+.photography::before { background-image: linear-gradient(135deg,#1e3c72,#f6a04d); }
+.about::before       { background-image: linear-gradient(135deg,#4b2e83,#1a1033); }
+
+/* Small screens: stack and shrink */
+@media (max-width: 9in) {
+  :root { --size: min(90vw, 4in); }
+  .grid { grid-template-columns: var(--size); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile::before { transition: none; }
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+}
+
+.bg-blog        { background-image: linear-gradient(135deg,#3a2f1f,#8a7350); }
+.bg-projects    { background-image: linear-gradient(135deg,#001a00,#0a5c0a); }
+.bg-photography { background-image: linear-gradient(135deg,#1e3c72,#f6a04d); }
+.bg-about       { background-image: linear-gradient(135deg,#4b2e83,#1a1033); }
+
+body:has(.blog:hover)        .bg-blog,
+body:has(.blog:focus-visible) .bg-blog               { opacity: 1; }
+body:has(.projects:hover)    .bg-projects,
+body:has(.projects:focus-visible) .bg-projects       { opacity: 1; }
+body:has(.photography:hover) .bg-photography,
+body:has(.photography:focus-visible) .bg-photography { opacity: 1; }
+body:has(.about:hover)       .bg-about,
+body:has(.about:focus-visible) .bg-about             { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg { transition: none; }
+}
