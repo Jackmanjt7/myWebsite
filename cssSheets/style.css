@@ -91,3 +91,39 @@ body:has(.about:focus-visible) .bg-about             { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .bg { transition: none; }
 }
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #000;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  animation: intro-out 1s ease 10.5s forwards;
+}
+
+.line {
+  grid-area: 1 / 1;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  letter-spacing: .04em;
+  opacity: 0;
+  animation: line-fade 5s ease-in-out forwards;
+}
+.line1 { animation-delay: .10s; }
+.line2 { animation-delay: 5.5s; }
+
+@keyframes line-fade {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes intro-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro { display: none; }
+}
