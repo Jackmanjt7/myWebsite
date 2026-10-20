@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home</title>
+  <script src="site.js" defer></script>     <!-- ../site.js in subfolders -->
   <link rel="stylesheet" href="style.css">
   <link rel="preload" as="image" href="images/blog.jpg">
   <link rel="preload" as="image" href="images/projects.jpg">
   <link rel="preload" as="image" href="images/photography.jpg">
   <link rel="preload" as="image" href="images/about.jpg">
+  <link rel="stylesheet" href="site.css">   <!-- ../site.css in subfolders -->
+  
 </head>
 <body>
   <div class="intro" id="intro">
@@ -20,10 +23,10 @@
     <div class="bg bg-photography"></div>
     <div class="bg bg-about"></div>
   <main class="grid">
-    <a class="tile blog"        href="/blog/"><span>Blog</span></a>
+    <a class="tile blog"        href="blog/"><span>Blog</span></a>
     <a class="tile projects"    href="https://github.com/jackmanjt7"><span>Projects</span></a>
-    <a class="tile photography" href="/photography/"><span>Photography</span></a>
-    <a class="tile about"       href="/about/"><span>About</span></a>
+    <a class="tile photography" href="photography/"><span>Photography</span></a>
+    <a class="tile about"       href="about/index.html"><span>About</span></a>
   </main>
 </body>
 </html>
