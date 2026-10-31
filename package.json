@@ -1,0 +1,43 @@
+{
+  "name": "mywebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "site.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jackmanjt7/myWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Jackmanjt7/myWebsite/issues"
+  },
+  "homepage": "https://github.com/Jackmanjt7/myWebsite#readme",
+  "private": true,
+  "dependencies": {
+    "gatsby": "^5.16.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "allowScripts": {
+    "lmdb@2.5.2": true,
+    "lmdb@2.5.3": true,
+    "@parcel/watcher@2.6.0": true,
+    "core-js@3.51.0": true,
+    "core-js-pure@3.51.0": true,
+    "es5-ext@0.10.64": true,
+    "gatsby@5.16.1": true,
+    "gatsby-cli@5.16.0": true,
+    "msgpackr-extract@3.0.4": true,
+    "sharp@0.32.6": true
+  }
+}
