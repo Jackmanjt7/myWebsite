@@ -1,0 +1,117 @@
+.home-page {
+  --tile-size: min(24rem, 22vw);
+
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+
+  background: #111;
+  color: #fff;
+}
+
+/* Page-wide image layers */
+.home-page .home-backgrounds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-page .home-background {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.home-page .home-background.is-active {
+  opacity: 1;
+}
+
+/* Four tiles in a single row */
+.home-page .home-grid {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: repeat(4, var(--tile-size));
+  gap: 1rem;
+}
+
+.home-page .home-tile {
+  display: grid;
+  place-items: center;
+
+  width: var(--tile-size);
+  aspect-ratio: 1;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 12px;
+
+  background: rgba(20, 20, 20, .55);
+  backdrop-filter: blur(8px);
+
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 1.75rem);
+  letter-spacing: .05em;
+
+  transition:
+    background-color .3s ease,
+    transform .3s ease;
+}
+
+.home-page .home-tile:hover,
+.home-page .home-tile:focus-visible {
+  background: rgba(20, 20, 20, .35);
+  transform: translateY(-4px);
+}
+
+.home-page .home-tile:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.home-page .home-tile span {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .7);
+}
+
+/* Stack on narrower screens */
+@media (max-width: 54rem) {
+  .home-page {
+    --tile-size: min(24rem, 85vw);
+  }
+
+  .home-page .home-grid {
+    grid-template-columns: var(--tile-size);
+  }
+
+  .home-page .home-tile {
+    font-size: 1.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .home-background,
+  .home-page .home-tile {
+    transition: none;
+  }
+
+  .home-page .home-tile:hover,
+  .home-page .home-tile:focus-visible {
+    transform: none;
+  }
+}
